@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R5: Update Food Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>Update CalorieBuddy</h1>
+
+    <%if (availableFoods.length == 0) { %>
+
+        <h1>NO RECORDS FOUND !!!</h1>
+
+    <% } else { %>
+
+    <h3>Select food to update its details or delete completely (NB delete takes priority over update):</h3>
+
+    <form action="update-food" method="POST">
+    <table>
+        <tr>
+            <th>ID#</th>
+            <th>Name</th>
+            <th>Typical Value</th>
+            <th>Typical Units</th>
+            <th>Calories</th>
+            <th>Carbs(g)</th>
+            <th>Fats(g)</th>
+            <th>Protein(g)</td>
+            <th>Salt(g) </th>
+            <th>Sugar(g)</th>
+            <th>Update ?</th>
+            <th>Delete ?</th>
+        </tr>
+
+        <% availableFoods.forEach(function(food){ %>
+        <tr>
+            <td><%= food.id %></td>
+            <td><%= food.fname %></td>
+            <td><%= food.typvals %></td>
+            <td><%= food.typunits %></td>
+            <td><%= food.calories %></td>
+            <td><%= food.gcarbs %></td>
+            <td><%= food.gfat %></td>
+            <td><%= food.gprotein %></td>
+            <td><%= food.gsalt %></td>
+            <td><%= food.gsugar %></td>
+            <td>
+                <input type="radio" name="update" id="<%= food.fname %>" value="<%= food.id %>">
+            </td>
+            <td>
+                <input type="radio" name="delete" id="<%= food.fname %>" value="<%= food.id %>">
+            </td>
+        </tr>
+        <% }) %> 
+    </table>
+    <br>
+    <input type="submit" value="UPDATE or DELETE RECORD" >
+    </form>
+
+    <% } %>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6: Delete Food Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>Delete CalorieBuddy</h1>
+
+    <h3>Confirm that you want to delete this record:</h3>
+
+        <form action="deleted" method="POST">
+
+            <table>
+            <tr>
+                <th>ID#</th>
+                <th>Name</th>
+                <th>Typical Value</th>
+                <th>Typical Units</th>
+                <th>Calories</th>
+                <th>Carbs(g)</th>
+                <th>Fats(g)</th>
+                <th>Protein(g)</th>
+                <th>Salt(g) </th>
+                <th>Sugar(g)</th>
+            </tr>
+            <tr>
+                <% availableFoods.forEach(function(food){ %>
+
+                <input id="id" type="hidden" name="id" value="<%= food.id %>" />
+
+                <tr>
+                    <td><%= food.id %></td>
+                    <td><%= food.fname %></td>
+                    <td><%= food.typvals %></td>
+                    <td><%= food.typunits %></td>
+                    <td><%= food.calories %></td>
+                    <td><%= food.gcarbs %></td>
+                    <td><%= food.gfat %></td>
+                    <td><%= food.gprotein %></td>
+                    <td><%= food.gsalt %></td>
+                    <td><%= food.gsugar %></td>
+                </tr>
+                <% }) %>
+            </tr>
+        </table>
+
+        <br>
+        <input type="submit" value="ARE YOU SURE ?" >
+        <br>
+
+    </form>
+    </div>
+
+</body>
+</html>

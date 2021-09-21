@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6: List Food Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>List CalorieBuddy</h1>
+
+    <%if (availableFoods.length == 0) { %>
+
+        <h1>NO RECORDS FOUND !!!</h1>
+
+    <% } else { %>
+
+        <h3>Select the food and amount to calculate nutritional information for recipe:</h3>
+
+        <form action="totals" method="POST">
+
+            <table>
+            <tr>
+                <th>ID#</th>
+                <th>Name</th>
+                <th>Typical Value</th>
+                <th>Typical Units</th>
+                <th>Calories</th>
+                <th>Carbs(g)</th>
+                <th>Fats(g)</th>
+                <th>Protein(g)</th>
+                <th>Salt(g) </th>
+                <th>Sugar(g)</th>
+                <th>Select ?</th>
+                <th>Factor(x Typ Val) ?</th>
+            </tr>
+
+            <% availableFoods.forEach(function(food){ %>
+            <tr>
+                <td><%= food.id %></td>
+                <td><%= food.fname %></td>
+                <td><%= food.typvals %></td>
+                <td><%= food.typunits %></td>
+                <td><%= food.calories %></td>
+                <td><%= food.gcarbs %></td>
+                <td><%= food.gfat %></td>
+                <td><%= food.gprotein %></td>
+                <td><%= food.gsalt %></td>
+                <td><%= food.gsugar %></td>
+                <td><input type="checkbox" id="use" name="use" value="use"></td>
+                <td><input id="factor" type="text" name="factor" value="0.0"></td>
+            </tr>
+
+            <% }) %>
+
+        </table>
+
+        <br>
+        <input type="submit" value="CALCULATE TOTALS" >
+        <br>
+
+        </form>
+
+        <% } %>
+    </div>
+
+</body>
+</html>

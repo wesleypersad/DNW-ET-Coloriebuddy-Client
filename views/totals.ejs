@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6: Calculated Totals Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>Totals CalorieBuddy</h1>
+
+    <%if (totals.length <= 1) { %>
+
+        <h1>NO RECORDS FOUND, SELECT SOME FOODS !!!</h1>
+
+    <% } else { %>
+
+    <h3>These are the total nutrient values for the selected recipe:</h3>
+
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Calories</th>
+            <th>Carbs(g)</th>
+            <th>Fats(g)</th>
+            <th>Protein(g)</th>
+            <th>Salt(g) </th>
+            <th>Sugar(g)</th>
+            <th>Factor</th>
+        </tr>
+
+        <% totals.forEach(function(food){ %>
+            <tr>
+                <td><%= food.fname %></td>
+                <td><%= food.calories %></td>
+                <td><%= food.gcarbs %></td>
+                <td><%= food.gfat %></td>
+                <td><%= food.gprotein %></td>
+                <td><%= food.gsalt %></td>
+                <td><%= food.gsugar %></td>
+                <td><%= food.factor %></td>
+            </tr>
+
+        <% }) %>
+    </table>
+
+    <% } %>
+    </div>
+
+</body>
+</html>

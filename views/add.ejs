@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R3: Add Food Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>Add to CalorieBuddy</h1>
+
+    <h3>Add new food items not currently in the database :</h3>
+
+    <form method="POST" action="<%= vals.action %>">
+
+    <table>
+        <tr>
+            <th>Food Property</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>​<label for="fname">Food Name:</label></td>
+            <td><input id="fname" type="text" name="fname" value="<%= vals.fname %>" /></td>
+        </tr>
+         <tr>
+              <td>​<label for="typvals">Typical Values per:</label></td>
+              <td><input id="typvals" type="text" name="typvals" value="<%= vals.typvals %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="typunits">Units of Typical Values:</label></td>
+            <td><input id="typunits" type="text" name="typunits" value="<%= vals.typunits %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="calories">Calories:</label></td>
+            <td><input id="calories" type="text" name="calories" value="<%= vals.calories %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="gcarbs">Carbs(g):</label></td>
+            <td><input id="gcarbs" type="text" name="gcarbs" value="<%= vals.gcarbs %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="gfat">Fat(g):</label></td>
+            <td><input id="gfat" type="text" name="gfat" value="<%= vals.gfat %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="gprotein">Protein(g):</label></td>
+            <td><input id="gprotein" type="text" name="gprotein" value="<%= vals.gprotein %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="gsalt">Salt(g):</label></td>
+            <td><input id="gsalt" type="text" name="gsalt" value="<%= vals.gsalt %>" /></td>
+        </tr>
+        <tr>
+            <td>​<label for="gsugar">Sugar(g):</label></td>
+            <td><input id="gsugar" type="text" name="gsugar" value="<%= vals.gsugar %>" /></td>
+        </tr>
+    </table>
+
+    <br>
+    <input type="submit" name="add" value="<%= vals.bmess %>" />
+
+    </form>
+    </div>
+
+</body>
+</html>

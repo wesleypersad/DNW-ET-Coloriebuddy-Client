@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R5B: Update Food Details Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>Update CalorieBuddy</h1>
+
+    <h3>This page allows you to update food item details :</h3>
+
+    <form method="POST" action="foodupdated">
+
+    <% availableFoods.forEach(function(food){ %>
+
+    <input id="id" type="hidden" name="id" value="<%= food.id %>" />
+    <table>
+        <tr>
+            <th>Food Property</th>
+            <th>Current Value</th>
+            <th>New Value</th>
+            <th>Select for Update</th>
+        </tr>
+        <tr>
+            <td>​ID#</td>
+            <td><%= food.id %></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>​<label for="fname">Food Name:</label></td>
+            <td><%= food.fname %></td>
+            <td><input id="fname" type="text" name="fname" value="eggs" /></td>
+            <td><input type="checkbox" id="fname" name="cbfname"></td>
+        </tr>
+         <tr>
+            <td>​<label for="typvals">Typical Values per:</label></td>
+            <td><%= food.typvals %></td>
+            <td><input id="typvals" type="text" name="typvals" value="100.0" /></td>
+            <td><input type="checkbox" id="typvals" name="cbtypvals"></td>
+        </tr>
+        <tr>
+            <td>​<label for="typunits">Units of Typical Values:</label></td>
+            <td><%= food.typunits %></td>
+            <td><input id="typunits" type="text" name="typunits" value="grams"/></td>
+            <td><input type="checkbox" id="typunits" name="cbtypunits"></td>
+        </tr>
+        <tr>
+            <td>​<label for="calories">Calories:</label></td>
+            <td><%= food.calories %></td>
+            <td><input id="calories" type="text" name="calories" value="381" /></td>
+            <td><input type="checkbox" id="calories" name="cbcalories"></td>
+        </tr>
+        <tr>
+            <td>​<label for="gcarbs">Carbs(g):</label></td>
+            <td><%= food.gcarbs %></td>
+            <td><input id="gcarbs" type="text" name="gcarbs" value="1.0" /></td>
+            <td><input type="checkbox" id="gcarbs" name="cbgcarbs"></td>
+        </tr>
+        <tr>
+            <td>​<label for="gfat">Fat(g):</label></td>
+            <td><%= food.gfat %></td>
+            <td><input id="gfat" type="text" name="gfat" value="1.0" /></td>
+            <td><input type="checkbox" id="gfat" name="cbgfat"></td>
+        </tr>
+        <tr>
+            <td>​<label for="gprotein">Protein(g):</label></td>
+            <td><%= food.gprotein %></td> 
+            <td><input id="gprotein" type="text" name="gprotein" value="9.1" /></td>
+            <td><input type="checkbox" id="gprotein" name="cbgprotein"></td>
+        </tr>
+        <tr>
+            <td>​<label for="gsalt">Salt(g):</label></td>
+            <td><%= food.gsalt %></td>
+            <td><input id="gsalt" type="text" name="gsalt" value="0.01" /></td>
+            <td><input type="checkbox" id="gsalt" name="cbgsalt"></td>
+        </tr>
+        <tr>
+            <td>​<label for="gsugar">Sugar(g):</label></td>
+            <td><%= food.gsugar %></td>
+            <td><input id="gsugar" type="text" name="gsugar" value="0.6" /></td>
+            <td><input type="checkbox" id="gsugar" name="cbgsugar"></td>
+        </tr>
+    </table>
+    <% }) %>
+
+    <br>
+    <input type="submit" value="UPDATE ?" />
+
+    </form>
+    </div>
+
+</body>
+</html>

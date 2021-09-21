@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R4: Search Food Page</title>
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href=".">Home</a>
+            <a href="about">About</a>
+            <a href="add">Add</a>
+            <a href="search">Search</a>
+            <a href="update">Update</a>
+            <a href="list">List</a>
+        </div>
+    </header>
+
+    <div>
+    <h1>Search CalorieBuddy</h1>
+
+    <h3>Search for food item that may be in the database (this accepts complete or partial name) :</h3>
+
+    <form action="search-result" method="GET">
+        <table>
+            <tr>
+                <td><input id="search-box" type="text" name="keyword" value="eggs"></td>
+                <td><input type="submit" value="SEARCH" ></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+
+</body>
+</html>
