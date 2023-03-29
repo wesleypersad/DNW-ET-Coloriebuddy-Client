@@ -1,8 +1,19 @@
+// get dotenv variables
+require('dotenv').config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const mysql = require("mysql");
-const port = 8089;
+const mysql = require("mysql2");
+
+// use port 5000 or port assigned by local environment for the server
+const port = process.env.PORT || 5000;
+const host = process.env.DB_HOST;
+const portdb = process.env.DB_PORT;
+const user = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+const database = process.env.DB_NAME;
+
 const path = require("path");
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -10,11 +21,14 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+// connect to database
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Mysql!(%*",
-    database: "caloriebuddy"
+    host: host,
+    user: user,
+    port: portdb,
+    password: password,
+    database: database
 });
 
 // connect to database
@@ -26,22 +40,9 @@ db.connect((err) => {
 });
 
 global.db = db;
+
 require("./routes/main")(app);
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 app.listen(port, () => console.log(`App for mid-term listening on port ${port}!`));
-
-
-/* var http = require("http");
-
-http
-.createServer(function(req, res) {
-res.writeHead(200, { "Content-Type": "text/plain" });
-res.write("Welcome to the mid-term application! \n\n");
-res.write("This application must run on PORT 8089");
-res.end();
-})
-.listen(8089, function() {
-console.log("Node server is running...");
-}); */
