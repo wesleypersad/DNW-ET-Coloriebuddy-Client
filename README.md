@@ -1,4 +1,4 @@
 # DNW-Course-Coloriebuddy
 ![CalorieBuddy](https://user-images.githubusercontent.com/26929215/228556255-06e78ab0-375a-481d-913f-3f14b4d90650.jpg)
 # This is the midterm group project for my Databases, Networks and the Web course on the BSc(Hons) Computer Science degree at Goldsmiths
-# Deployed on [Railway.app at](dnw-et-coloriebuddy-client-production.up.railway.app)
+# Deployed on [Railway.app](dnw-et-coloriebuddy-client-production.up.railway.app)
